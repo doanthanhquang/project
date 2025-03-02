@@ -20,7 +20,7 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider("https://api.fake-rest.refine.dev")}
+                dataProvider={dataProvider(import.meta.env.VITE_API_URL)}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 resources={resources}

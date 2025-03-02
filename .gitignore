@@ -12,6 +12,8 @@ node_modules
 dist
 dist-ssr
 \*.local
+# dotenv environment variables file
+.env
 
 # Editor directories and files
 

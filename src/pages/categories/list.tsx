@@ -10,7 +10,7 @@ export const CategoryList = () => {
   const { tableProps } = useTable({
     syncWithLocation: true,
     pagination: {
-      mode: 'client',
+      mode: "client",
       pageSize: 100,
     },
   });
@@ -57,7 +57,7 @@ export const CategoryList = () => {
         dateFormatter="string"
         search={false}
         bordered
-        scroll={{ x: "max-content", y: '70%' }}
+        scroll={{ x: "max-content", y: "65vh" }}
         options={{
           density: false,
           search: {

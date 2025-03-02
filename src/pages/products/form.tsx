@@ -1,19 +1,17 @@
-import React, { useMemo } from 'react';
-import { FormProps, Row, Col } from 'antd';
-import type { ModalProps } from 'antd/es/modal/interface';
-import { useTranslation } from '@refinedev/core';
-import { ModalForm, ProFormDatePicker, ProFormMoney } from '@ant-design/pro-components';
-import { IQuotation } from './model';
+import React, { useMemo } from "react";
+import { FormProps, Row, Col } from "antd";
+import type { ModalProps } from "antd/es/modal/interface";
+import { ModalForm, ProFormText, ProFormMoney, ProFormTextArea } from "@ant-design/pro-components";
+import { IProduct } from "./model";
 
-export const QuotationForm: React.FC<{
-  formType: 'create' | 'edit' | 'show';
-  formProps: FormProps<IQuotation>;
+export const ProductForm: React.FC<{
+  formType: "create" | "edit" | "show";
+  formProps: FormProps<IProduct>;
   modalProps: ModalProps;
   handler?: (values: any) => void;
   formLoading?: boolean;
 }> = ({ formType, formProps, modalProps, handler, formLoading }) => {
-  const { translate } = useTranslation();
-  const formReadonly = useMemo(() => formType === 'show', [formType]);
+  const formReadonly = useMemo(() => formType === "show", [formType]);
 
   return (
     <ModalForm
@@ -35,21 +33,16 @@ export const QuotationForm: React.FC<{
     >
       <Row gutter={[16, 16]}>
         <Col span={24}>
-          <ProFormDatePicker
-            name="apply_date"
-            label={translate('quotations.fields.quotationApplyDate')}
-            required
-            rules={[{ required: true }]}
-          />
+          <ProFormText name="material" label="Material" required rules={[{ required: true }]} />
         </Col>
         <Col span={24}>
-          <ProFormMoney
-            name="price"
-            label={translate('quotations.fields.price')}
-            placeholder={translate('quotations.fields.price')}
-            required
-            rules={[{ required: true }]}
-          />
+          <ProFormText name="name" label="Name" required rules={[{ required: true }]} />
+        </Col>
+        <Col span={24}>
+          <ProFormTextArea name="description" label="Description" required rules={[{ required: true }]} />
+        </Col>
+        <Col span={24}>
+          <ProFormMoney name="price" label="Price" required rules={[{ required: true }]} />
         </Col>
       </Row>
     </ModalForm>

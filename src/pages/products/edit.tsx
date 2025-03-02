@@ -1,8 +1,8 @@
 import React, { useImperativeHandle } from 'react';
 import { useModalForm } from '@refinedev/antd';
-import { QuotationForm } from './form';
+import { ProductForm } from './form';
 
-export const QuotationEditModal: React.FC = React.forwardRef((props, ref) => {
+export const ProductEditModal: React.FC = React.forwardRef((props, ref) => {
   const {
     modalProps: modalProps,
     formProps: formProps,
@@ -21,7 +21,7 @@ export const QuotationEditModal: React.FC = React.forwardRef((props, ref) => {
 
   return (
     open && (
-      <QuotationForm
+      <ProductForm
         formType="edit"
         formProps={formProps}
         formLoading={formLoading}

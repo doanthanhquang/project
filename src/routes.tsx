@@ -3,7 +3,7 @@ import { Header } from "./components/header";
 import { Outlet, Route, Routes } from "react-router";
 import { NavigateToResource } from "@refinedev/react-router";
 import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
-import { QuotationList } from "./pages/products";
+import { ProductList } from "./pages/products";
 import { ErrorComponent, ThemedLayoutV2, ThemedSiderV2 } from "@refinedev/antd";
 
 export const RoutesBundle: React.FC = () => (
@@ -23,7 +23,7 @@ export const RoutesBundle: React.FC = () => (
         <Route path="show/:id" element={<CategoryShow />} />
       </Route>
       <Route path="/products">
-        <Route index element={<QuotationList />} />
+        <Route index element={<ProductList />} />
       </Route>
       <Route path="*" element={<ErrorComponent />} />
     </Route>
