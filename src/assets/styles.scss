@@ -1,0 +1,44 @@
+.ms-layout .ms-sider {
+  padding-block: 55px;
+}
+
+aside.ant-layout-sider {
+  max-width: none !important;
+}
+
+.ant-page-header-breadcrumb {
+  padding-block-start: 0 !important;
+}
+
+.ant-table-body {
+  overflow: auto auto !important;
+}
+
+.ant-table-tbody {
+  display: table-footer-group;
+}
+
+.ant-table-summary {
+  display: table-header-group;
+}
+
+.ant-table-summary .ant-table-cell {
+  font-weight: bold;
+}
+
+// .ant-table-cell {
+//   min-width: 100px !important;
+// }
+
+.ant-table-cell.ant-table-cell-scrollbar {
+  display: none;
+}
+
+.ant-typography.ant-typography-ellipsis.ant-typography-ellipsis-single-line {
+  width: 200px !important;
+}
+
+.ms-sider-collapsed-button {
+  background-color: #00a54e;
+  color: white;
+}
