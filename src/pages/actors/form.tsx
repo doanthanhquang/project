@@ -2,11 +2,11 @@ import React, { useMemo } from 'react';
 import { FormProps, Row, Col } from 'antd';
 import type { ModalProps } from 'antd/es/modal/interface';
 import { ModalForm, ProFormText } from '@ant-design/pro-components';
-import { IProduct } from './model';
+import { IActor } from './model';
 
-export const ProductForm: React.FC<{
+export const ActorForm: React.FC<{
   formType: 'create' | 'edit' | 'show';
-  formProps: FormProps<IProduct>;
+  formProps: FormProps<IActor>;
   modalProps: ModalProps;
   handler?: (values: any) => void;
   formLoading?: boolean;

@@ -1,14 +1,15 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { EditButton, DeleteButton, List, useTable, CreateButton } from '@refinedev/antd';
+import { EditButton, DeleteButton, List, useTable, CreateButton, ShowButton } from '@refinedev/antd';
 import { useRef } from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import { useParsed, BaseRecord } from '@refinedev/core';
 import { Space } from 'antd';
-import { ProductEditModal } from './edit';
-import { ProductCreateModal } from './create';
+import { ActorEditModal } from './edit';
+import { ActorCreateModal } from './create';
+import { ActorShowModal } from './show';
 import dayjs from 'dayjs';
 
-export const ProductList = () => {
+export const ActorList = () => {
   const { resource } = useParsed();
 
   const { tableProps } = useTable({
@@ -21,6 +22,7 @@ export const ProductList = () => {
 
   const createModalRef = useRef();
   const editModalRef = useRef();
+  const showModalRef = useRef();
 
   const columns: ProColumns[] = [
     {
@@ -60,6 +62,12 @@ export const ProductList = () => {
             recordItemId={record.actorId}
             onClick={() => editModalRef.current?.modalShow(record.actorId)}
           />
+          <ShowButton
+            hideText
+            size="small"
+            recordItemId={record.id}
+            onClick={() => showModalRef.current?.modalShow(record.actorId)}
+          />
           <DeleteButton hideText size="small" recordItemId={record.actorId} />
         </Space>
       ),
@@ -97,8 +105,9 @@ export const ProductList = () => {
           }}
         />
       </List>
-      <ProductEditModal ref={editModalRef} />
-      <ProductCreateModal ref={createModalRef} />
+      <ActorEditModal ref={editModalRef} />
+      <ActorCreateModal ref={createModalRef} />
+      <ActorShowModal ref={showModalRef} />
     </>
   );
 };

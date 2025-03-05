@@ -2,8 +2,7 @@ import React from "react";
 import { Header } from "./components/header";
 import { Outlet, Route, Routes } from "react-router";
 import { NavigateToResource } from "@refinedev/react-router";
-import { CategoryCreate, CategoryEdit, CategoryList, CategoryShow } from "./pages/categories";
-import { ProductList } from "./pages/products";
+import { ActorList } from "./pages/actors";
 import { ErrorComponent, ThemedLayoutV2, ThemedSiderV2 } from "@refinedev/antd";
 
 export const RoutesBundle: React.FC = () => (
@@ -15,15 +14,9 @@ export const RoutesBundle: React.FC = () => (
         </ThemedLayoutV2>
       }
     >
-      <Route index element={<NavigateToResource resource="categories" />} />
-      <Route path="/categories">
-        <Route index element={<CategoryList />} />
-        <Route path="create" element={<CategoryCreate />} />
-        <Route path="edit/:id" element={<CategoryEdit />} />
-        <Route path="show/:id" element={<CategoryShow />} />
-      </Route>
-      <Route path="/products">
-        <Route index element={<ProductList />} />
+      <Route index element={<NavigateToResource resource="actors" />} />
+      <Route path="/actors">
+        <Route index element={<ActorList />} />
       </Route>
       <Route path="*" element={<ErrorComponent />} />
     </Route>

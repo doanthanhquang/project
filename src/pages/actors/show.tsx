@@ -1,17 +1,16 @@
 import React, { useImperativeHandle } from 'react';
 import { useModalForm } from '@refinedev/antd';
-import { ProductForm } from './form';
+import { ActorForm } from './form';
 
-export const ProductEditModal: React.FC = React.forwardRef((props, ref) => {
+export const ActorShowModal: React.FC = React.forwardRef((props, ref) => {
   const {
     modalProps: modalProps,
     formProps: formProps,
     show: modalShow,
     formLoading: formLoading,
     open,
-    queryResult,
   } = useModalForm({
-    action: 'edit',
+    action: 'show',
     syncWithLocation: false,
     redirect: false,
   });
@@ -22,8 +21,8 @@ export const ProductEditModal: React.FC = React.forwardRef((props, ref) => {
 
   return (
     open && (
-      <ProductForm
-        formType="edit"
+      <ActorForm
+        formType="show"
         formProps={formProps}
         formLoading={formLoading}
         modalProps={modalProps}

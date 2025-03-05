@@ -1,16 +1,16 @@
 import React, { useImperativeHandle } from "react";
 import { useModalForm } from "@refinedev/antd";
-import { ProductForm } from "./form";
-import { IProduct } from "./model";
+import { ActorForm } from "./form";
+import { IActor } from "./model";
 
-export const ProductCreateModal: React.FC = React.forwardRef((props, ref) => {
+export const ActorCreateModal: React.FC = React.forwardRef((props, ref) => {
   const {
     modalProps: modalProps,
     formProps: formProps,
     show: modalShow,
     formLoading: formLoading,
     open,
-  } = useModalForm<IProduct>({
+  } = useModalForm<IActor>({
     action: 'create',
     syncWithLocation: false,
     redirect: false,
@@ -28,7 +28,7 @@ export const ProductCreateModal: React.FC = React.forwardRef((props, ref) => {
 
   return (
     open && (
-      <ProductForm
+      <ActorForm
         formType="create"
         formProps={formProps}
         formLoading={formLoading}
