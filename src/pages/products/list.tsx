@@ -14,7 +14,7 @@ export const ProductList = () => {
   const { tableProps } = useTable({
     syncWithLocation: false,
     pagination: {
-      mode: 'client',
+      mode: 'server',
       pageSize: 100,
     },
   });
@@ -83,7 +83,7 @@ export const ProductList = () => {
       >
         <ProTable
           {...tableProps}
-          manualRequest={true}
+          manualRequest={false}
           rowKey="id"
           columns={columns}
           defaultSize="small"

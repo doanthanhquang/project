@@ -24,7 +24,7 @@ export const ProductEditModal: React.FC = React.forwardRef((props, ref) => {
     open && (
       <ProductForm
         formType="edit"
-        formProps={{ ...formProps, initialValues: queryResult?.data?.data?.data || {} }}
+        formProps={formProps}
         formLoading={formLoading}
         modalProps={modalProps}
         handler={formProps.onFinish}

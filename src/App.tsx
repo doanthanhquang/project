@@ -5,12 +5,12 @@ import "./assets/styles.scss";
 import { useNotificationProvider } from "@refinedev/antd";
 import "@refinedev/antd/dist/reset.css";
 import routerBindings, { DocumentTitleHandler, UnsavedChangesNotifier } from "@refinedev/react-router";
-import dataProvider from "@refinedev/simple-rest";
 import { App as AntdApp } from "antd";
 import { BrowserRouter } from "react-router";
 import { ColorModeContextProvider } from "./contexts/color-mode";
 import { resources } from "./constants";
 import { RoutesBundle } from './routes';
+import { dataProvider } from './rest-data-provider';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <AntdApp>
             <DevtoolsProvider>
               <Refine
-                dataProvider={dataProvider(import.meta.env.VITE_API_URL)}
+                dataProvider={dataProvider}
                 notificationProvider={useNotificationProvider}
                 routerProvider={routerBindings}
                 resources={resources}
