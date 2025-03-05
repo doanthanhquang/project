@@ -10,7 +10,7 @@ export const ActorShowModal: React.FC = React.forwardRef((props, ref) => {
     formLoading: formLoading,
     open,
   } = useModalForm({
-    action: 'show',
+    action: 'edit',
     syncWithLocation: false,
     redirect: false,
   });
@@ -25,7 +25,7 @@ export const ActorShowModal: React.FC = React.forwardRef((props, ref) => {
         formType="show"
         formProps={formProps}
         formLoading={formLoading}
-        modalProps={modalProps}
+        modalProps={{ ...modalProps, title: 'Xem diễn viên' }}
         handler={formProps.onFinish}
       />
     )

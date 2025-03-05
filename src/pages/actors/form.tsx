@@ -30,6 +30,14 @@ export const ActorForm: React.FC<{
       labelCol={{ span: 6 }}
       wrapperCol={{ span: 12 }}
       layout="horizontal"
+      submitter={{
+        submitButtonProps: formReadonly
+          ? { style: { display: 'none' } }
+          : {},
+        resetButtonProps: {
+          style: { display: 'inline-block' },
+        },
+      }}
     >
       <Row gutter={[16, 16]}>
         <Col span={24}>
