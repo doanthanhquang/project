@@ -1,11 +1,12 @@
-import type { ProColumns } from "@ant-design/pro-components";
-import { EditButton, DeleteButton, List, useTable, CreateButton } from "@refinedev/antd";
-import { useRef } from "react";
-import { ProTable } from "@ant-design/pro-components";
-import { useParsed, BaseRecord } from "@refinedev/core";
-import { Space } from "antd";
-import { ProductEditModal } from "./edit";
-import { ProductCreateModal } from "./create";
+import type { ProColumns } from '@ant-design/pro-components';
+import { EditButton, DeleteButton, List, useTable, CreateButton } from '@refinedev/antd';
+import { useRef } from 'react';
+import { ProTable } from '@ant-design/pro-components';
+import { useParsed, BaseRecord } from '@refinedev/core';
+import { Space } from 'antd';
+import { ProductEditModal } from './edit';
+import { ProductCreateModal } from './create';
+import dayjs from 'dayjs';
 
 export const ProductList = () => {
   const { resource } = useParsed();
@@ -13,7 +14,7 @@ export const ProductList = () => {
   const { tableProps } = useTable({
     syncWithLocation: false,
     pagination: {
-      mode: "server",
+      mode: 'client',
       pageSize: 100,
     },
   });
@@ -23,45 +24,43 @@ export const ProductList = () => {
 
   const columns: ProColumns[] = [
     {
-      dataIndex: "index",
-      title: "#",
-      valueType: "indexBorder",
+      dataIndex: 'index',
+      title: '#',
+      valueType: 'indexBorder',
       width: 48,
     },
     {
-      title: "Material",
-      dataIndex: "material",
+      title: 'First Name',
+      dataIndex: 'firstName',
       search: false,
       ellipsis: true,
     },
     {
-      title: "Name",
-      dataIndex: "name",
+      title: 'Last Name',
+      dataIndex: 'lastName',
       search: false,
       ellipsis: true,
     },
     {
-      title: "Description",
-      dataIndex: "description",
+      title: 'Last Update',
+      dataIndex: 'lastUpdate',
+      render: (_, entity) => dayjs(entity.lastUpdate).format('DD/MM/YYYY'),
       search: false,
       ellipsis: true,
-    },
-    {
-      title: "Price",
-      align: "right",
-      dataIndex: "price",
-      valueType: "money",
-      fieldProps: { precision: 0 },
-      search: false,
     },
     {
       width: 60,
-      key: "actions",
-      valueType: "option",
+      key: 'actions',
+      valueType: 'option',
       render: (_, record: BaseRecord) => (
         <Space>
-          <EditButton hideText size="small" recordItemId={record.id} onClick={() => editModalRef.current?.modalShow(record.id)} />
-          <DeleteButton hideText size="small" recordItemId={record.id} />
+          <EditButton
+            hideText
+            size="small"
+            recordItemId={record.actorId}
+            onClick={() => editModalRef.current?.modalShow(record.actorId)}
+          />
+          <DeleteButton hideText size="small" recordItemId={record.actorId} />
         </Space>
       ),
     },
@@ -91,12 +90,10 @@ export const ProductList = () => {
           dateFormatter="string"
           search={false}
           bordered
-          scroll={{ x: "max-content", y: "65vh" }}
+          scroll={{ x: 'max-content', y: '65vh' }}
           options={{
             density: false,
-            search: {
-              name: "q",
-            },
+            search: false,
           }}
         />
       </List>

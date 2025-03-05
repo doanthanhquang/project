@@ -9,13 +9,15 @@ export const resources: IResourceItem[] = [
     show: "/categories/show/:id",
     meta: {
       canDelete: true,
+      label: "Danh mục",
     },
   },
   {
-    name: "products",
+    name: "v1/actors",
     list: "/products",
     meta: {
       canDelete: true,
+      label: "Diễn viên",
     },
   },
 ];
