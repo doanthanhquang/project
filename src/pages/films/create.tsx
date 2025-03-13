@@ -1,8 +1,8 @@
 import React, { useImperativeHandle } from "react";
 import { useModalForm } from "@refinedev/antd";
-import { ActorForm } from "./form";
+import { FilmForm } from "./form";
 
-export const ActorCreateModal: React.FC = React.forwardRef((props, ref) => {
+export const FilmCreateModal: React.FC = React.forwardRef((props, ref) => {
   const {
     modalProps: modalProps,
     formProps: formProps,
@@ -22,12 +22,13 @@ export const ActorCreateModal: React.FC = React.forwardRef((props, ref) => {
   const handleCreate = (values: any) => {
     formProps.onFinish?.({
       ...values,
+      specialFeatures: values.specialFeatures?.join(",")
     });
   };
 
   return (
     open && (
-      <ActorForm
+      <FilmForm
         formType="create"
         formProps={formProps}
         formLoading={formLoading}

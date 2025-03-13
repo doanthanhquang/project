@@ -4,12 +4,12 @@ import { useRef } from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import { useParsed, BaseRecord } from '@refinedev/core';
 import { Space } from 'antd';
-import { ActorEditModal } from './edit';
-import { ActorCreateModal } from './create';
-import { ActorShowModal } from './show';
+import { FilmEditModal } from './edit';
+import { FilmCreateModal } from './create';
+import { FilmShowModal } from './show';
 import dayjs from 'dayjs';
 
-export const ActorList = () => {
+export const FilmList = () => {
   const { resource } = useParsed();
 
   const { tableProps } = useTable({
@@ -32,14 +32,55 @@ export const ActorList = () => {
       width: 48,
     },
     {
-      title: 'First Name',
-      dataIndex: 'firstName',
+      title: 'Title',
+      dataIndex: 'title',
       search: false,
       ellipsis: true,
     },
     {
-      title: 'Last Name',
-      dataIndex: 'lastName',
+      title: 'Description',
+      dataIndex: 'description',
+      search: false,
+      ellipsis: true,
+    },
+    {
+      title: 'Rating',
+      dataIndex: 'rating',
+      search: false,
+      width: 100,
+      align: 'center',
+    },
+    {
+      title: 'Release Year',
+      dataIndex: 'releaseYear',
+      search: false,
+      width: 100,
+      align: 'center',
+    },
+    {
+      title: 'Rental Duration',
+      dataIndex: 'rentalDuration',
+      search: false,
+      width: 140,
+      align: 'center',
+    },
+    {
+      title: 'Rental Rate',
+      dataIndex: 'rentalRate',
+      search: false,
+      width: 120,
+      align: 'center',
+    },
+    {
+      title: 'Replacement Cost',
+      dataIndex: 'replacementCost',
+      search: false,
+      width: 140,
+      align: 'center',
+    },
+    {
+      title: 'Special Features',
+      dataIndex: 'specialFeatures',
       search: false,
       ellipsis: true,
     },
@@ -48,7 +89,8 @@ export const ActorList = () => {
       dataIndex: 'lastUpdate',
       render: (_, entity) => dayjs(entity.lastUpdate).format('DD/MM/YYYY'),
       search: false,
-      ellipsis: true,
+      width: 120,
+      align: 'center',
     },
     {
       width: 60,
@@ -59,16 +101,16 @@ export const ActorList = () => {
           <EditButton
             hideText
             size="small"
-            recordItemId={record.actorId}
-            onClick={() => editModalRef.current?.modalShow(record.actorId)}
+            recordItemId={record.filmId}
+            onClick={() => editModalRef.current?.modalShow(record.filmId)}
           />
           <ShowButton
             hideText
             size="small"
             recordItemId={record.filmId}
-            onClick={() => showModalRef.current?.modalShow(record.actorId)}
+            onClick={() => showModalRef.current?.modalShow(record.filmId)}
           />
-          <DeleteButton hideText size="small" recordItemId={record.actorId} />
+          <DeleteButton hideText size="small" recordItemId={record.filmId} />
         </Space>
       ),
     },
@@ -105,9 +147,9 @@ export const ActorList = () => {
           }}
         />
       </List>
-      <ActorEditModal ref={editModalRef} />
-      <ActorCreateModal ref={createModalRef} />
-      <ActorShowModal ref={showModalRef} />
+      <FilmEditModal ref={editModalRef} />
+      <FilmCreateModal ref={createModalRef} />
+      <FilmShowModal ref={showModalRef} />
     </>
   );
 };

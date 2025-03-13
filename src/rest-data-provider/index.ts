@@ -66,7 +66,7 @@ export const baseDataProvider = (
       const total = +data?.pagination?.total || data?.data?.length || 0;
 
       return {
-        ...{data},
+        ...data,
         total,
       };
     } catch (error) {
