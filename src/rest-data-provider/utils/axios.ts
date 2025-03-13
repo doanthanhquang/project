@@ -9,7 +9,7 @@ axiosInstance.interceptors.response.use(
     const customError: HttpError = {
       ...error,
       errors: error.response?.data?.error?.fields,
-      message: error.response?.data?.error?.message,
+      message: error.response?.data?.errors[0]?.message,
       statusCode: error.response?.status,
     };
 
