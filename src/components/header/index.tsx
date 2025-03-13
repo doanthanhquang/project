@@ -44,7 +44,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
 
   return (
     <AntdLayout.Header style={headerStyles}>
-      <Space>
+      {/* <Space>
         <Switch
           checkedChildren="🌛"
           unCheckedChildren="🔆"
@@ -55,7 +55,7 @@ export const Header: React.FC<RefineThemedLayoutV2HeaderProps> = ({
           {user?.name && <Text strong>{user.name}</Text>}
           {user?.avatar && <Avatar src={user?.avatar} alt={user?.name} />}
         </Space>
-      </Space>
+      </Space> */}
     </AntdLayout.Header>
   );
 };
